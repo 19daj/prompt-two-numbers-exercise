@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <p id="demo"></p>
+<script type="text/javascript">
+    /* alert("Hola mundo");*/
+    //var name = prompt("Hola digita tu nombre");
+    //alert("Hola " + name);
+
+    /*var number = prompt("Ingresa un numero entero");
+    if(number % 2 == 0) {
+        alert("El numero es par")
+    } else {
+        alert("El numero es impar");
+    }*/
+
+    /*var number = prompt("Ingresa un número entero");
+
+    number % 2 == 0 ? alert("El númnero es par") : alert("El número es impar");*/
+
+    /*var codigo = "";
+    codigo = '<table><tr><td>D</td><td>O</td> </tr><tr><td>F</td><td>A</td></tr></table>';
+    document.write(codigo);*/
+
+    /*var nombres = ["cindy", "johan", "jess", "martin"];*/
+    /*alert(nombres[0]);
+    alert(nombres[1]);
+    alert(nombres[2]);
+    alert(nombres[3]);*/
+    //alert(nombres);
+    //console.log(nombres.length);
+
+    /*var number = parseInt(prompt("Ingresa un numero entero"));
+
+        if (number % 2 == 0 && number < 100) {
+            alert("El numero es par y menor a 100")
+        } else if (number % 2 == 0 && number > 100) {
+            alert("El numero es par y mayor a 100");
+        } else if (number % 2 !== 0 && number < 100) {
+            alert("El numero es impar y menor a 100");
+        } else if (number % 2 !== 0 && number > 100) {
+            alert("El numero es impar y mayor a 100");
+        } else {
+            alert("El numero es otro");
+        }*/
+
+    /*for(var i = 1; i <= 10; i++) {
+        alert(i);
+    }*/
+
+    /*var a = parseInt(prompt("Ingresa el primer número"));
+                var b = parseInt(prompt("Ingresa el segundo número"));
+                var c = parseInt(prompt("Ingresa el tercer numero"));
+    
+                for(var i = a; i <= b; i+= c) {
+                    console.log(i * i);
+                }*/
+
+    do {
+        var num1;
+        var num2;
+        var option;
+        var result;
+
+        num1 = prompt("Ingrese primer número");
+
+        while (num1 === "") {
+            num1 = prompt("Ingrese primer número");
+        }
+
+        if (num1 === null) {
+            break;
+        }
+
+        for (var i = 0; i < num1.length; i++) {
+            while (num1.charCodeAt(i) < 46 || num1.charCodeAt(i) > 57 || num1.charCodeAt(i) === 47 || num1 === "" || num1 === " ") {
+                num1 = prompt("Caracter inválido. Por favor ingrese únicamente primer número");
+            }
+        }
+
+        num2 = prompt("Ingrese segundo número");
+
+        while (num2 === "") {
+            num2 = prompt("Ingrese segundo número");
+        }
+
+        if (num2 === null) {
+            break;
+        }
+
+        for (var j = 0; j < num2.length; j++) {
+            while (num2.charCodeAt(j) < 46 || num2.charCodeAt(j) > 57 || num2.charCodeAt(j) === 47 || num2 === "" || num2 === " ") {
+                num2 = prompt("Caracter inválido. Por favor ingrese únicamente segundo número");
+            }
+        }
+
+        option = prompt("Digite el número según corresponda:\n 1) Sumar esos 2 números \n 2)Restar esos 2 números \n 3) Multiplicar esos 2 números \n 4) Dividir esos 2 números \n 5) Sacar el residuo de esos 2 números \n 6)Concatenar esos 2 números \n 7) Salir del programa");
+
+        while (option === "") {
+            option = prompt("Digite el número según corresponda:\n 1) Sumar esos 2 números \n 2)Restar esos 2 números \n 3) Multiplicar esos 2 números \n 4) Dividir esos 2 números \n 5) Sacar el residuo de esos 2 números \n 6)Concatenar esos 2 números \n 7) Salir del programa");
+        }
+
+        for (var k = 0; k < option.length; k++) {
+            while (option.charCodeAt(k) < 46 || option.charCodeAt(k) > 55 || option.charCodeAt(k) === 47 || option ==="" || option === " " || option.length !== 1) {
+                option = prompt("Opción no válida. Digite únicamente el número según corresponda:\n 1) Sumar esos 2 números \n 2)Restar esos 2 números \n 3) Multiplicar esos 2 números \n 4) Dividir esos 2 números \n 5) Sacar el residuo de esos 2 números \n 6)Concatenar esos 2 números \n 7) Salir del programa");
+            }
+        }
+
+        switch (option) {
+            case "1":
+                alert(suma(num1, num2));
+                break;
+            case "2":
+                alert(resta(num1, num2));
+                break;
+            case "3":
+                alert(multiplicación(num1, num2));
+                break;
+            case "4":
+                alert(división(num1, num2));
+                break;
+            case "5":
+                alert(residuo(num1, num2));
+                break;
+            case "6":
+                alert(concatenar(num1, num2));
+                break;
+        }
+
+        if (option === "7") {
+            break;
+        }
+
+    } while (option !== null);
+
+//FUNCIONES
+    function suma(num1, num2) {
+        result = parseFloat(num1) + parseFloat(num2);
+        return result;
+    }
+
+    function resta(num1, num2) {
+        result = parseFloat(num1 - num2);
+        return result;
+    }
+
+    function multiplicación(num1, num2) {
+        result = parseFloat(num1 * num2);
+        return result;
+    }
+
+    function división(num1, num2) {
+        result = parseFloat(num1 / num2);
+        return result;
+    }
+
+    function residuo(num1, num2) {
+        result = parseFloat(num1 % num2);
+        return result;
+    }
+
+    function concatenar(num1, num2) {
+        result = num1 + num2;
+        return result;
+    }
+
+    //console.log(suma(num1, num2), resta(num1, num2), multiplicación(num1, num2), división(num1, num2), residuo(num1, num2), concatenar(num1, num2));
+
+    /*var parrafo = document.getElementById("demo");
+    var text = "";
+    
+    for(var i = 0; i < 10; i++) {
+       
+        if(i === 3) {
+            continue;
+        }
+        text += "El número es: " + i + "<br>";
+        console.log(text); 
+    }
+    
+    parrafo.innerHTML = text;*/
+</script>
+</body>
+</html>
